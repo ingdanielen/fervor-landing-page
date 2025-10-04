@@ -123,7 +123,7 @@ export function TextCarouselSection() {
             {row1Texts.map((text, index) => (
               <div
                 key={index}
-                className="text-7xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#c4ff0d]/20 hover:text-[#c4ff0d] transition-colors duration-300 cursor-default select-none"
+                className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#c4ff0d]/20 hover:text-[#c4ff0d] transition-colors duration-300 cursor-default select-none"
                 style={{
                   textShadow: "0 0 30px rgba(196, 255, 13, 0.3)",
                   WebkitTextStroke: "1px rgba(196, 255, 13, 0.5)",
@@ -141,7 +141,7 @@ export function TextCarouselSection() {
             {row2Texts.map((text, index) => (
               <div
                 key={index}
-                className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white/20 hover:text-white transition-colors duration-300 cursor-default select-none"
+                className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white/20 hover:text-white transition-colors duration-300 cursor-default select-none"
                 style={{
                   textShadow: "0 0 30px rgba(255, 255, 255, 0.2)",
                   WebkitTextStroke: "1px rgba(255, 255, 255, 0.3)",
@@ -159,7 +159,7 @@ export function TextCarouselSection() {
             {row3Texts.map((text, index) => (
               <div
                 key={index}
-                className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#c4ff0d]/20 hover:text-[#c4ff0d] transition-colors duration-300 cursor-default select-none"
+                className="text-5xl   md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#c4ff0d]/20 hover:text-[#c4ff0d] transition-colors duration-300 cursor-default select-none"
                 style={{
                   textShadow: "0 0 30px rgba(196, 255, 13, 0.3)",
                   WebkitTextStroke: "1px rgba(196, 255, 13, 0.5)",
