@@ -41,12 +41,13 @@ export function TextCarouselSection() {
       })
 
       if (row1Ref.current) {
-        gsap.to(row1Ref.current, {
+        // Crear animación infinita sin reiniciarse
+        const tl1 = gsap.timeline({ repeat: -1, yoyo: true });
+        tl1.to(row1Ref.current, {
           x: "-50%",
           duration: 20,
           ease: "none",
-          repeat: -1,
-        })
+        });
 
         gsap.from(row1Ref.current.children, {
           scrollTrigger: {
@@ -62,13 +63,15 @@ export function TextCarouselSection() {
       }
 
       if (row2Ref.current) {
-        gsap.to(row2Ref.current, {
+        gsap.set(row2Ref.current, { x: "-50%" })
+        
+        // Crear animación infinita sin reiniciarse
+        const tl2 = gsap.timeline({ repeat: -1, yoyo: true });
+        tl2.to(row2Ref.current, {
           x: "0%",
           duration: 25,
           ease: "none",
-          repeat: -1,
-        })
-        gsap.set(row2Ref.current, { x: "-50%" })
+        });
 
         gsap.from(row2Ref.current.children, {
           scrollTrigger: {
@@ -84,12 +87,13 @@ export function TextCarouselSection() {
       }
 
       if (row3Ref.current) {
-        gsap.to(row3Ref.current, {
+        // Crear animación infinita sin reiniciarse
+        const tl3 = gsap.timeline({ repeat: -1, yoyo: true });
+        tl3.to(row3Ref.current, {
           x: "-50%",
           duration: 22,
           ease: "none",
-          repeat: -1,
-        })
+        });
 
         gsap.from(row3Ref.current.children, {
           scrollTrigger: {

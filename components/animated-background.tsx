@@ -127,7 +127,7 @@ export function AnimatedBackground() {
         gradient.addColorStop(0.4, `rgba(196, 255, 13, ${blob.opacity * 0.5})`)
         gradient.addColorStop(0.6, `rgba(196, 255, 13, ${blob.opacity * 0.3})`)
         gradient.addColorStop(0.8, `rgba(196, 255, 13, ${blob.opacity * 0.1})`)
-        gradient.addColorStop(1, "rgba(196, 255, 13, 0)")
+        gradient.addColorStop(1, "rgba(255, 255, 255, 0)")
 
         ctx.fillStyle = gradient
         ctx.beginPath()

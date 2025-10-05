@@ -88,6 +88,24 @@ export function Header() {
     setMobileMenuOpen(false)
   }
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      // Es una sección de la página actual
+      e.preventDefault()
+      const targetId = href.substring(1) // Remover el '/' del inicio
+      handleSmoothScroll(e, targetId)
+    } else if (href === '/') {
+      // Es la página home - solo hacer scroll si ya estamos en home
+      if (window.location.pathname === '/') {
+        e.preventDefault()
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        setMobileMenuOpen(false)
+      }
+      // Si no estamos en home, dejar que Link navegue normalmente
+    }
+    // Para otras rutas como /memorias, dejar que Link maneje la navegación
+  }
+
   return (
     <>
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] md:w-[90%] max-w-6xl px-4 md:px-0">
@@ -107,41 +125,47 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-              <a
-                href="#home"
-                onClick={(e) => handleSmoothScroll(e, "#home")}
+              <Link
+                href="/"
                 className="text-sm font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 relative group cursor-pointer"
               >
                 Home
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#c4ff0d] rounded-full group-hover:w-full transition-all duration-300" />
-              </a>
+              </Link>
               <a
-                href="#predicadores"
-                onClick={(e) => handleSmoothScroll(e, "#predicadores")}
+                href="/#predicadores"
+                onClick={(e) => handleNavigation(e, "/#predicadores")}
                 className="text-sm font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 relative group cursor-pointer"
               >
                 Predicadores
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#c4ff0d] rounded-full group-hover:w-full transition-all duration-300" />
               </a>
               <a
-                href="#galeria"
-                onClick={(e) => handleSmoothScroll(e, "#galeria")}
+                href="/#galeria"
+                onClick={(e) => handleNavigation(e, "/#galeria")}
                 className="text-sm font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 relative group cursor-pointer"
               >
                 Galería
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#c4ff0d] rounded-full group-hover:w-full transition-all duration-300" />
               </a>
+              <Link
+                href="/memorias"
+                className="text-sm font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 relative group cursor-pointer"
+              >
+                Memorias
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#c4ff0d] rounded-full group-hover:w-full transition-all duration-300" />
+              </Link>
               <a
-                href="#pagos"
-                onClick={(e) => handleSmoothScroll(e, "#pagos")}
+                href="/#pagos"
+                onClick={(e) => handleNavigation(e, "/#pagos")}
                 className="text-sm font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 relative group cursor-pointer"
               >
                 Pagos
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#c4ff0d] rounded-full group-hover:w-full transition-all duration-300" />
               </a>
               <a
-                href="#about"
-                onClick={(e) => handleSmoothScroll(e, "#about")}
+                href="/#about"
+                onClick={(e) => handleNavigation(e, "/#about")}
                 className="text-sm font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 relative group cursor-pointer"
               >
                 About
@@ -173,37 +197,43 @@ export function Header() {
         >
           <div className="rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl shadow-[#c4ff0d]/20 p-6">
             <nav className="flex flex-col gap-4">
-              <a
-                href="#home"
-                onClick={(e) => handleSmoothScroll(e, "#home")}
+              <Link
+                href="/"
                 className="text-base font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 py-2 border-b border-white/10 cursor-pointer"
               >
                 Home
-              </a>
+              </Link>
               <a
-                href="#predicadores"
-                onClick={(e) => handleSmoothScroll(e, "#predicadores")}
+                href="/#predicadores"
+                onClick={(e) => handleNavigation(e, "/#predicadores")}
                 className="text-base font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 py-2 border-b border-white/10 cursor-pointer"
               >
                 Predicadores
               </a>
               <a
-                href="#galeria"
-                onClick={(e) => handleSmoothScroll(e, "#galeria")}
+                href="/#galeria"
+                onClick={(e) => handleNavigation(e, "/#galeria")}
                 className="text-base font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 py-2 border-b border-white/10 cursor-pointer"
               >
                 Galería
               </a>
+              <Link
+                href="/memorias"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 py-2 border-b border-white/10 cursor-pointer"
+              >
+                Memorias
+              </Link>
               <a
-                href="#pagos"
-                onClick={(e) => handleSmoothScroll(e, "#pagos")}
+                href="/#pagos"
+                onClick={(e) => handleNavigation(e, "/#pagos")}
                 className="text-base font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 py-2 border-b border-white/10 cursor-pointer"
               >
                 Pagos
               </a>
               <a
-                href="#about"
-                onClick={(e) => handleSmoothScroll(e, "#about")}
+                href="/#about"
+                onClick={(e) => handleNavigation(e, "/#about")}
                 className="text-base font-medium text-white/90 hover:text-[#c4ff0d] transition-all duration-300 py-2 border-b border-white/10 cursor-pointer"
               >
                 About

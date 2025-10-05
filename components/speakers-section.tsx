@@ -15,18 +15,21 @@ const speakers = [
     role: "Primera Sesión",
     time: "3:00 PM - 4:30 PM",
     description: "Especialista en adoración profunda",
+    image: "/images/Predicadores/luis-fernando.jpg",
   },
   {
     name: "SANDRA VILLAMIZAR",
     role: "Segunda Sesión",
     time: "4:45 PM - 6:15 PM",
     description: "Líder de alabanza internacional",
+    image: "/images/Predicadores/sandra.jpeg",
   },
   {
     name: "JAIRO NASAR PADAUÍ",
     role: "Tercera Sesión",
     time: "6:30 PM - 8:00 PM",
     description: "Predicador y maestro de la palabra",
+    image: "/images/Predicadores/nabonasar.jpg",
   },
 ]
 
@@ -301,7 +304,7 @@ export function SpeakersSection() {
               <div className="aspect-[3/4] relative overflow-hidden">
                 <div className="speaker-overlay smooth-fade-overlay absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10 opacity-80" />
                 <Image
-                  src={`/professional-church-speaker-.jpg?height=600&width=400&query=professional church speaker ${speaker.name}`}
+                  src={speaker.image}
                   alt={speaker.name}
                   fill
                   className="speaker-image object-cover grayscale transition-all duration-500"
@@ -372,7 +375,7 @@ export function SpeakersSection() {
                     <div className="aspect-[3/4] relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10 opacity-80" />
                       <Image
-                        src={`/professional-church-speaker-.jpg?height=600&width=400&query=professional church speaker ${speaker.name}`}
+                        src={speaker.image}
                         alt={speaker.name}
                         fill
                         className="object-cover grayscale transition-all duration-500"
