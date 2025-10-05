@@ -116,8 +116,8 @@ export function Header() {
               <Image 
                 src="/images/TV.png" 
                 alt="FERVOR" 
-                width={32} 
-                height={32} 
+                width={1000} 
+                height={1000}  
                 className="h-full w-20 md:h-full md:w-32 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(196,255,13,0.6)]" 
               />
 
