@@ -103,17 +103,51 @@ export function ImpactSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Optimización: Detectar dispositivo para ajustar animaciones
+      const isMobile = window.innerWidth <= 768
+      const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024
+      
+      // Configuración optimizada según dispositivo
+      const animationConfig = {
+        mobile: {
+          duration: 0.6,
+          ease: "power2.out",
+          rotationX: 0,
+          rotationY: 0,
+          scale: 0.8
+        },
+        tablet: {
+          duration: 0.8,
+          ease: "power2.out", 
+          rotationX: -20,
+          rotationY: 90,
+          scale: 0.6
+        },
+        desktop: {
+          duration: 1.2,
+          ease: "expo.out",
+          rotationX: -90,
+          rotationY: 180,
+          scale: 0.3
+        }
+      }
+      
+      const config = isMobile ? animationConfig.mobile : 
+                    isTablet ? animationConfig.tablet : 
+                    animationConfig.desktop
+
       gsap.from(titleRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 75%",
         },
         opacity: 0,
-        y: 150,
-        scale: 0.5,
-        rotationX: -90,
-        duration: 1.5,
-        ease: "expo.out",
+        y: isMobile ? 50 : 150,
+        scale: config.scale,
+        rotationX: config.rotationX,
+        duration: config.duration,
+        ease: config.ease,
+        force3D: true,
       })
 
       gsap.from(subtitleRef.current, {
@@ -122,16 +156,20 @@ export function ImpactSection() {
           start: "top 75%",
         },
         opacity: 0,
-        y: 80,
-        duration: 1.2,
-        delay: 0.4,
-        ease: "power4.out",
+        y: isMobile ? 30 : 80,
+        duration: config.duration * 0.8,
+        delay: 0.2,
+        ease: "power2.out",
+        force3D: true,
       })
 
       const cards = cardsRef.current?.children
       if (cards) {
         Array.from(cards).forEach((card, index) => {
           const cardElement = card as HTMLElement
+          
+          // Aplicar clases de optimización
+          cardElement.classList.add('animated-element', 'card-element')
 
           gsap.from(cardElement, {
             scrollTrigger: {
@@ -139,70 +177,78 @@ export function ImpactSection() {
               start: "top 85%",
             },
             opacity: 0,
-            y: 200,
-            rotationY: 180,
-            rotationX: -45,
-            scale: 0.3,
-            duration: 1.5,
-            delay: index * 0.3,
-            ease: "expo.out",
+            y: isMobile ? 50 : 200,
+            rotationY: config.rotationY,
+            rotationX: config.rotationX,
+            scale: config.scale,
+            duration: config.duration,
+            delay: index * (isMobile ? 0.1 : 0.3),
+            ease: config.ease,
+            force3D: true,
           })
 
-          cardElement.addEventListener("mouseenter", () => {
-            gsap.to(cardElement, {
-              y: -20,
-              scale: 1.05,
-              rotationY: 3,
-              duration: 0.7,
-              ease: "power3.out",
+          // Optimización: Solo agregar eventos hover en desktop
+          if (!isMobile) {
+            cardElement.addEventListener("mouseenter", () => {
+              gsap.to(cardElement, {
+                y: -15,
+                scale: 1.03,
+                rotationY: 2,
+                duration: 0.4,
+                ease: "power2.out",
+                force3D: true,
+              })
+
+              const image = cardElement.querySelector(".card-image")
+              if (image) {
+                gsap.to(image, {
+                  scale: 1.05,
+                  duration: 0.4,
+                  ease: "power2.out",
+                  force3D: true,
+                })
+              }
+
+              const glow = cardElement.querySelector(".card-glow")
+              if (glow) {
+                gsap.to(glow, {
+                  opacity: 1,
+                  scale: 1.2,
+                  duration: 0.3,
+                  ease: "power2.out",
+                })
+              }
             })
 
-            const image = cardElement.querySelector(".card-image")
-            if (image) {
-              gsap.to(image, {
-                scale: 1.1,
-                duration: 0.7,
+            cardElement.addEventListener("mouseleave", () => {
+              gsap.to(cardElement, {
+                y: 0,
+                scale: 1,
+                rotationY: 0,
+                duration: 0.4,
                 ease: "power2.out",
+                force3D: true,
               })
-            }
 
-            const glow = cardElement.querySelector(".card-glow")
-            if (glow) {
-              gsap.to(glow, {
-                opacity: 1,
-                scale: 1.3,
-                duration: 0.6,
-                ease: "power2.out",
-              })
-            }
-          })
+              const image = cardElement.querySelector(".card-image")
+              if (image) {
+                gsap.to(image, {
+                  scale: 1,
+                  duration: 0.4,
+                  force3D: true,
+                })
+              }
 
-          cardElement.addEventListener("mouseleave", () => {
-            gsap.to(cardElement, {
-              y: 0,
-              scale: 1,
-              rotationY: 0,
-              duration: 0.7,
-              ease: "power3.out",
+              const glow = cardElement.querySelector(".card-glow")
+              if (glow) {
+                gsap.to(glow, {
+                  opacity: 0,
+                  scale: 1,
+                  duration: 0.3,
+                })
+              }
             })
-
-            const image = cardElement.querySelector(".card-image")
-            if (image) {
-              gsap.to(image, {
-                scale: 1,
-                duration: 0.7,
-              })
-            }
-
-            const glow = cardElement.querySelector(".card-glow")
-            if (glow) {
-              gsap.to(glow, {
-                opacity: 0,
-                scale: 1,
-                duration: 0.6,
-              })
-            }
-          })
+          }
         })
       }
     })
@@ -271,6 +317,10 @@ export function ImpactSection() {
                       alt={reason.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      priority={index === 0}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      quality={85}
                     />
                   </div>
                   
@@ -386,6 +436,10 @@ export function ImpactSection() {
                           alt={reason.title}
                           fill
                           className="object-cover transition-transform duration-700"
+                          priority={index === currentIndex}
+                          loading={index === currentIndex ? "eager" : "lazy"}
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          quality={80}
                         />
                       </div>
                       

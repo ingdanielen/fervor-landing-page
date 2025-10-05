@@ -139,30 +139,85 @@
     @apply bg-gray-900 text-foreground;
   }
   
-  /* Optimizaciones para mejor fluidez */
+  /* Optimizaciones críticas para mejor fluidez */
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
   }
   
-  /* Optimización para animaciones */
+  /* Optimización para animaciones - GPU acceleration */
   .gallery-item,
   .speaker-card,
   .impact-card,
-  .pricing-card {
-    will-change: transform;
+  .pricing-card,
+  .carousel-item,
+  .card-element,
+  .animated-element {
+    will-change: transform, opacity;
     transform: translateZ(0);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    -webkit-perspective: 1000;
+    perspective: 1000px;
   }
   
   /* Optimización para scroll suave */
   html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
   
   /* Optimización para imágenes */
   img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Optimización para elementos interactivos */
+  button, 
+  [role="button"],
+  .interactive-element {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  /* Optimización para texto */
+  .text-element {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Optimización para contenedores de animación */
+  .animation-container {
+    contain: layout style paint;
+    isolation: isolate;
+  }
+  
+  /* Optimización para móviles */
+  @media (max-width: 768px) {
+    .mobile-optimized {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      will-change: auto;
+    }
+    
+    /* Reducir animaciones complejas en móviles */
+    .complex-animation {
+      animation-duration: 0.3s !important;
+      transition-duration: 0.2s !important;
+    }
+  }
+  
+  /* Optimización para tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .tablet-optimized {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
   }
 }

@@ -18,17 +18,11 @@ export const metadata: Metadata = {
     'ipuc',
     'trupillo',
     'conferencia espiritual',
-    'ipuc',
-    'renovación',
-    'trupillo',
-    'conferencia espiritual',
-    'ipuc',
     'renovación',
     'milagros',
     'fe',
     'esperanza',
-    'comunidad cristiana',  
-    'conferencia espiritual',
+    'comunidad cristiana',
   ],
   authors: [{ name: 'Fervor' }],
   creator: 'Fervor',
@@ -88,7 +82,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <head>
+        {/* Optimizaciones de rendimiento */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="//vercel.live" />
+        
+        {/* Preload de recursos críticos */}
+        <link rel="preload" href="/images/Fervor logo 1(Blanco).png" as="image" />
+        <link rel="preload" href="/images/meta/screenshot.png" as="image" />
+        
+        {/* Meta tags de rendimiento */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="color-scheme" content="dark" />
+        
+        {/* Optimización para móviles */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </head>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} animation-container`}>
         {children}
         <Analytics />
       </body>
