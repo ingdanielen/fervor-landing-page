@@ -281,7 +281,7 @@ export function PricingSection() {
                   <div className="flex justify-center mb-4 md:mb-6">
                     <div
                       className={`w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center ${
-                        plan.highlighted ? "bg-black/20" : "bg-[#c4ff0d]/20"
+                        plan.highlighted ? "bg-black/20" : "bg-[#c4ff0d]"
                       }`}
                     >
                       <Icon
@@ -293,7 +293,7 @@ export function PricingSection() {
                   <div className="text-center mb-6 md:mb-8">
                     <div
                       className={`inline-block px-4 md:px-6 py-1.5 md:py-2 rounded-full text-[10px] md:text-xs font-black mb-4 md:mb-6 uppercase tracking-wider ${
-                        plan.highlighted ? "bg-black/20 text-black" : "bg-[#c4ff0d]/20 text-[#c4ff0d]"
+                        plan.highlighted ? "bg-black/20 text-black" : "bg-[#c4ff0d] text-[#c4ff0d]"
                       }`}
                     >
                       {plan.name}
@@ -313,7 +313,7 @@ export function PricingSection() {
                       <li key={featureIndex} className="flex items-center gap-2 md:gap-3">
                         <div
                           className={`flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center ${
-                            plan.highlighted ? "bg-black/20" : "bg-[#c4ff0d]/20"
+                            plan.highlighted ? "bg-black/20" : "bg-[#c4ff0d]"
                           }`}
                         >
                           <Check
@@ -377,7 +377,7 @@ export function PricingSection() {
                         <div className="flex justify-center mb-4">
                           <div
                             className={`w-16 h-16 rounded-full flex items-center justify-center ${
-                              plan.highlighted ? "bg-black/20" : "bg-[#c4ff0d]/20"
+                              plan.highlighted ? "bg-black/20" : "bg-[#c4ff0d]"
                             }`}
                           >
                             <Icon className={`h-8 w-8 ${plan.highlighted ? "text-black" : "text-[#c4ff0d]"}`} />
@@ -387,7 +387,7 @@ export function PricingSection() {
                         <div className="text-center mb-6">
                           <div
                             className={`inline-block px-4 py-1.5 rounded-full text-[10px] font-black mb-4 uppercase tracking-wider ${
-                              plan.highlighted ? "bg-black/20 text-black" : "bg-[#c4ff0d]/20 text-[#c4ff0d]"
+                              plan.highlighted ? "bg-black/20 text-black" : "bg-[#c4ff0d] text-[#c4ff0d]"
                             }`}
                           >
                             {plan.name}
@@ -407,7 +407,7 @@ export function PricingSection() {
                             <li key={featureIndex} className="flex items-center gap-2">
                               <div
                                 className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
-                                  plan.highlighted ? "bg-black/20" : "bg-[#c4ff0d]/20"
+                                  plan.highlighted ? "bg-black/20" : "bg-[#c4ff0d]"
                                 }`}
                               >
                                 <Check

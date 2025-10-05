@@ -155,16 +155,17 @@ export function GallerySection() {
 
       // Solo animar cards visibles para mejor rendimiento
       if (absOffset <= 2) {
-        gsap.to(card, {
-          x: offset * 220,
-          z: -absOffset * 200,
-          rotationY: offset * -25,
-          scale: 1 - absOffset * 0.15,
-          opacity: Math.max(0.3, 1 - absOffset * 0.2),
-          filter: `brightness(${1 - absOffset * 0.2}) blur(${absOffset * 0.5}px)`,
-          duration: 0.8,
-          ease: "power3.out",
-        })
+      gsap.to(card, {
+        x: offset * 220,
+        z: -absOffset * 200,
+        rotationY: offset * -25,
+        scale: 1 - absOffset * 0.15,
+        opacity: Math.max(0.3, 1 - absOffset * 0.2),
+        filter: `brightness(${1 - absOffset * 0.2}) blur(${absOffset * 0.5}px)`,
+        duration: 0.6,
+        ease: "power2.out",
+        force3D: true,
+      })
       } else {
         // Ocultar cards muy lejanas para evitar bugs visuales
         gsap.set(card, {
@@ -301,22 +302,23 @@ export function GallerySection() {
             </div>
           </div>
 
-          {/* Navigation dots */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
-            {galleryImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-[#c4ff0d] w-8 h-2 rounded-full"
-                    : "bg-white/40 w-2 h-2 rounded-full hover:bg-white/60"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
+      </div>
+
+      {/* Navigation dots - Movido fuera del carrusel */}
+      <div className="flex justify-center gap-2 mt-8">
+        {galleryImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`transition-all duration-300 ${
+              index === currentIndex
+                ? "bg-[#c4ff0d] w-8 h-2 rounded-full"
+                : "bg-white/40 w-2 h-2 rounded-full hover:bg-white/60"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   )

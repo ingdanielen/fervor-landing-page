@@ -136,6 +136,33 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gray-900 text-foreground;
+  }
+  
+  /* Optimizaciones para mejor fluidez */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Optimización para animaciones */
+  .gallery-item,
+  .speaker-card,
+  .impact-card,
+  .pricing-card {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* Optimización para scroll suave */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimización para imágenes */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 }

@@ -226,9 +226,10 @@ export function ImpactSection() {
   const handleDragEnd = () => {
     if (!isDragging) return
 
-    if (dragOffset > 100) {
+    // Simplificado: solo necesita un pequeño movimiento
+    if (dragOffset > 50) {
       setCurrentIndex((prev) => (prev === 0 ? reasons.length - 1 : prev - 1))
-    } else if (dragOffset < -100) {
+    } else if (dragOffset < -50) {
       setCurrentIndex((prev) => (prev + 1) % reasons.length)
     }
 
@@ -285,7 +286,7 @@ export function ImpactSection() {
                         boxShadow: "0 8px 32px rgba(196, 255, 13, 0.3)",
                       }}
                     >
-                      <span className="text-black font-black text-xs md:text-sm tracking-wider">
+                      <span className="text-white font-black text-xs md:text-sm tracking-wider">
                         {reason.highlight}
                       </span>
                     </div>
@@ -314,7 +315,7 @@ export function ImpactSection() {
                       </p>
                     </div>
 
-                    <p className="text-white/90 leading-relaxed text-base md:text-lg">
+                    <p className="text-white/90 leading-relaxed text-sm md:text-base lg:text-lg px-2 md:px-0">
                       {reason.description}
                     </p>
                   </div>
@@ -368,7 +369,7 @@ export function ImpactSection() {
                 return (
                   <div
                     key={index}
-                    className="absolute w-[320px] h-[420px] rounded-3xl overflow-hidden border-2 border-[#c4ff0d]/40 bg-black/90 backdrop-blur-md transition-all duration-700"
+                    className="absolute w-[300px] h-[450px] rounded-3xl overflow-hidden border-2 border-[#c4ff0d]/40 bg-black/90 backdrop-blur-md transition-all duration-700"
                     style={{
                       transform: `translateX(${offset * 300 + dragOffset * 0.3}px) translateZ(${-absOffset * 200}px) rotateY(${offset * -25}deg) scale(${1 - absOffset * 0.15})`,
                       opacity: Math.max(0.3, 1 - absOffset * 0.2),
@@ -400,7 +401,7 @@ export function ImpactSection() {
                             boxShadow: "0 8px 32px rgba(196, 255, 13, 0.3)",
                           }}
                         >
-                          <span className="text-black font-black text-xs tracking-wider">
+                          <span className="text-white font-black text-xs tracking-wider">
                             {reason.highlight}
                           </span>
                         </div>
@@ -408,8 +409,8 @@ export function ImpactSection() {
                     </div>
 
                     {/* Content Section */}
-                    <div className="relative p-4">
-                      <div className="space-y-3">
+                    <div className="relative p-3">
+                      <div className="space-y-2">
                         <div>
                           <h3
                             className="text-xl font-black mb-1 bg-clip-text text-transparent leading-tight"
@@ -429,7 +430,7 @@ export function ImpactSection() {
                           </p>
                         </div>
 
-                        <p className="text-white/90 leading-relaxed text-sm">
+                        <p className="text-white/90 leading-relaxed text-xs px-2">
                           {reason.description}
                         </p>
                       </div>

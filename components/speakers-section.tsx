@@ -25,7 +25,7 @@ const speakers = [
     image: "/images/Predicadores/sandra.jpeg",
   },
   {
-    name: "JAIRO NASAR PADAUÍ",
+    name: "NABONASAR PADAUÍ",
     role: "Tercera Sesión",
     time: "6:30 PM - 8:00 PM",
     description: "Predicador y maestro de la palabra",
@@ -55,11 +55,11 @@ export function SpeakersSection() {
           toggleActions: "play none none none",
         },
         opacity: 0,
-        y: -150,
-        scale: 0.3,
-        rotation: 15,
-        duration: 1.4,
-        ease: "elastic.out(1, 0.6)",
+        y: -100,
+        scale: 0.8,
+        duration: 1,
+        ease: "power2.out",
+        force3D: true,
       })
 
       gsap.from(subtitleRef.current, {
@@ -69,11 +69,11 @@ export function SpeakersSection() {
           toggleActions: "play none none none",
         },
         opacity: 0,
-        x: -200,
-        rotation: -5,
-        duration: 1,
+        x: -100,
+        duration: 0.8,
         delay: 0.2,
-        ease: "power4.out",
+        ease: "power2.out",
+        force3D: true,
       })
 
       // Animación de botones con referencias individuales
@@ -236,9 +236,10 @@ export function SpeakersSection() {
   const handleDragEnd = () => {
     if (!isDragging) return
 
-    if (dragOffset > 100) {
+    // Simplificado: solo necesita un pequeño movimiento
+    if (dragOffset > 50) {
       setCurrentIndex((prev) => (prev === 0 ? speakers.length - 1 : prev - 1))
-    } else if (dragOffset < -100) {
+    } else if (dragOffset < -50) {
       setCurrentIndex((prev) => (prev + 1) % speakers.length)
     }
 
