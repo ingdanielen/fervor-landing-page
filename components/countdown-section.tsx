@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-// 🎯 FECHA OBJETIVO
+
 const TARGET_DATE = new Date("2025-10-19T15:00:00-05:00").getTime()
 
 export function CountdownSection() {
@@ -22,7 +22,7 @@ export function CountdownSection() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const prevTimeRef = useRef(timeLeft)
 
-  // 🕒 Función para calcular la diferencia de tiempo
+
   const calculateTimeLeft = () => {
     const now = Date.now()
     const diff = TARGET_DATE - now
@@ -37,14 +37,14 @@ export function CountdownSection() {
     const DAY = HOUR * 24
 
     return {
-      days: Math.ceil(diff / DAY),
+      days: Math.floor(diff / DAY),
       hours: Math.floor((diff % DAY) / HOUR),
       minutes: Math.floor((diff % HOUR) / MINUTE),
       seconds: Math.floor((diff % MINUTE) / SECOND),
     }
   }
 
-  // ⏱ Actualiza el contador cada segundo
+
   useEffect(() => {
     const update = () => setTimeLeft(calculateTimeLeft())
     update()
@@ -52,7 +52,7 @@ export function CountdownSection() {
     return () => clearInterval(interval)
   }, [])
 
-  // 🎬 Animaciones de entrada (GSAP)
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(titleRef.current, {
@@ -88,7 +88,7 @@ export function CountdownSection() {
     return () => ctx.revert()
   }, [])
 
-  // 🔄 Animación flip al cambiar los números
+
   useEffect(() => {
     const numbers = numbersRef.current?.querySelectorAll(".countdown-number")
     if (!numbers) return

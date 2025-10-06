@@ -11,24 +11,24 @@ gsap.registerPlugin(ScrollTrigger)
 
 const speakers = [
   {
-    name: "LUIS FERNANDO VÁSQUEZ",
-    role: "Primera Sesión",
-    time: "3:00 PM - 4:30 PM",
-    description: "Especialista en adoración profunda",
-    image: "/images/Predicadores/luis-fernando.jpg",
-  },
-  {
     name: "SANDRA VILLAMIZAR",
-    role: "Segunda Sesión",
-    time: "4:45 PM - 6:15 PM",
-    description: "Líder de alabanza internacional",
+    role: "Primera Sesión",
+    //time: "4:45 PM - 6:15 PM",
+    description: "Esposa de Pastor",
     image: "/images/Predicadores/sandra.jpeg",
   },
   {
-    name: "NABONASAR PADAUÍ",
+    name: "LUIS FERNANDO VÁSQUEZ",
+    role: "Segunda Sesión",
+    //time: "3:00 PM - 4:30 PM",
+    description: "Coordinador Distrital ESFOM",
+    image: "/images/Predicadores/luis-fernando.jpg",
+  },
+  {
+    name: "NABO NASAR PADAUÍ",
     role: "Tercera Sesión",
-    time: "6:30 PM - 8:00 PM",
-    description: "Predicador y maestro de la palabra",
+    //time: "6:30 PM - 8:00 PM",
+    description: "Secretario Distrito 35",
     image: "/images/Predicadores/nabonasar.jpg",
   },
 ]
