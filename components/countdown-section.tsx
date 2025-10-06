@@ -6,12 +6,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
+// 🎯 FECHA OBJETIVO
+const TARGET_DATE = new Date("2025-10-19T15:00:00-05:00").getTime()
+
 export function CountdownSection() {
   const [timeLeft, setTimeLeft] = useState({
-    days: 18,
-    hours: 3,
-    minutes: 41,
-    seconds: 35,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
   })
 
   const sectionRef = useRef<HTMLElement>(null)
@@ -19,25 +22,37 @@ export function CountdownSection() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const prevTimeRef = useRef(timeLeft)
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 }
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 }
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 }
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 }
-        }
-        return prev
-      })
-    }, 1000)
+  // 🕒 Función para calcular la diferencia de tiempo
+  const calculateTimeLeft = () => {
+    const now = Date.now()
+    const diff = TARGET_DATE - now
 
-    return () => clearInterval(timer)
+    if (diff <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+    }
+
+    const SECOND = 1000
+    const MINUTE = SECOND * 60
+    const HOUR = MINUTE * 60
+    const DAY = HOUR * 24
+
+    return {
+      days: Math.ceil(diff / DAY),
+      hours: Math.floor((diff % DAY) / HOUR),
+      minutes: Math.floor((diff % HOUR) / MINUTE),
+      seconds: Math.floor((diff % MINUTE) / SECOND),
+    }
+  }
+
+  // ⏱ Actualiza el contador cada segundo
+  useEffect(() => {
+    const update = () => setTimeLeft(calculateTimeLeft())
+    update()
+    const interval = setInterval(update, 1000)
+    return () => clearInterval(interval)
   }, [])
 
+  // 🎬 Animaciones de entrada (GSAP)
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(titleRef.current, {
@@ -73,6 +88,7 @@ export function CountdownSection() {
     return () => ctx.revert()
   }, [])
 
+  // 🔄 Animación flip al cambiar los números
   useEffect(() => {
     const numbers = numbersRef.current?.querySelectorAll(".countdown-number")
     if (!numbers) return
@@ -85,11 +101,7 @@ export function CountdownSection() {
         const numberElement = numbers[index]
         gsap.fromTo(
           numberElement,
-          {
-            rotationX: 0,
-            opacity: 1,
-            scale: 1,
-          },
+          { rotationX: 0, opacity: 1, scale: 1 },
           {
             rotationX: 90,
             opacity: 0,
@@ -99,11 +111,7 @@ export function CountdownSection() {
             onComplete: () => {
               gsap.fromTo(
                 numberElement,
-                {
-                  rotationX: -90,
-                  opacity: 0,
-                  scale: 0.8,
-                },
+                { rotationX: -90, opacity: 0, scale: 0.8 },
                 {
                   rotationX: 0,
                   opacity: 1,
@@ -125,7 +133,10 @@ export function CountdownSection() {
     <section ref={sectionRef} className="py-16 md:py-24 lg:py-32 relative ">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
-          <h2 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 md:mb-12 font-altone">
+          <h2
+            ref={titleRef}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 md:mb-12 font-altone"
+          >
             FALTAN TAN SOLO
           </h2>
 
@@ -143,10 +154,11 @@ export function CountdownSection() {
               <div key={index} className="flex flex-col items-center">
                 <div
                   className="countdown-number text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tabular-nums glow-text font-altone"
-                  style={{ 
+                  style={{
                     perspective: "500px",
                     textShadow: "0 0 40px rgba(196, 255, 13, 0.8)",
-                    filter: "drop-shadow(0 0 20px rgba(196, 255, 13, 0.6))"
+                    filter:
+                      "drop-shadow(0 0 20px rgba(196, 255, 13, 0.6))",
                   }}
                 >
                   {String(item.value).padStart(2, "0")}
