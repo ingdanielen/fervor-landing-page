@@ -300,6 +300,7 @@ export function SpeakersSection() {
                 <div className="bg-[#c4ff0d] text-black px-3 md:px-5 py-1.5 md:py-2 rounded-full font-black text-[10px] md:text-xs uppercase tracking-wider shadow-xl">
                   {speaker.role}
                 </div>
+                
               </div>
 
               <div className="aspect-[3/4] relative overflow-hidden">
@@ -319,6 +320,7 @@ export function SpeakersSection() {
                   </h3>
                   <p className="text-[#c4ff0d] font-bold text-xs md:text-sm mb-1">{speaker.time}</p>
                   <p className="text-white/70 text-xs md:text-sm">{speaker.description}</p>
+                  
                 </div>
 
                 <Button
