@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Play, Pause, Volume2, VolumeX } from "lucide-react"
+import { Play, Pause, Volume2, VolumeX, Volume1 } from "lucide-react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -160,25 +160,23 @@ export function LiveStreamSection({
             {/* Overlay effects sutiles */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent video-element" />
             
-            {/* Controles de video */}
-            <div className="absolute inset-0 flex items-center justify-center video-element">
-              <div className="relative">
-                <div ref={glowRef} className="absolute inset-0 bg-[#c4ff0d]/10 rounded-full blur-xl scale-150" />
-                <button
-                  ref={playButtonRef}
-                  onClick={togglePlay}
-                  className="relative w-14 h-14 md:w-16 md:h-16 rounded-full border border-[#c4ff0d]/60 bg-black/60 backdrop-blur-sm flex items-center justify-center hover:bg-black/80 transition-all duration-300 hover:scale-105"
-                >
-                  {isPlaying ? (
-                    <Pause className="h-5 w-5 md:h-6 md:w-6 text-[#c4ff0d] fill-[#c4ff0d]" />
-                  ) : (
+            {/* Controles de video - solo se muestran cuando está pausado */}
+            {!isPlaying && (
+              <div className="absolute inset-0 flex items-center justify-center video-element">
+                <div className="relative">
+                  <div ref={glowRef} className="absolute inset-0 bg-[#c4ff0d]/10 rounded-full blur-xl scale-150" />
+                  <button
+                    ref={playButtonRef}
+                    onClick={togglePlay}
+                    className="relative w-14 h-14 md:w-16 md:h-16 rounded-full border border-[#c4ff0d]/60 bg-black/60 backdrop-blur-sm flex items-center justify-center hover:bg-black/80 transition-all duration-300 hover:scale-105"
+                  >
                     <Play className="h-5 w-5 md:h-6 md:w-6 text-[#c4ff0d] fill-[#c4ff0d] ml-0.5" />
-                  )}
-                </button>
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
 
-            {/* Control de volumen */}
+            {/* Control de volumen simple */}
             <div className="absolute bottom-3 right-3 video-element">
               <button
                 onClick={toggleMute}

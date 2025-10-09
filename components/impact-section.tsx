@@ -300,7 +300,7 @@ export function ImpactSection() {
         </div>
 
         {/* Desktop: Grid layout */}
-        <div ref={cardsRef} className="hidden md:grid grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto">
+        <div ref={cardsRef} className="hidden lg:grid grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto">
           {reasons.map((reason, index) => (
             <div
               key={index}
@@ -396,7 +396,7 @@ export function ImpactSection() {
         </div>
 
         {/* Mobile: Horizontal scroll with indicators */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <div
             className="relative w-full h-[450px] cursor-grab active:cursor-grabbing select-none"
             style={{ perspective: "1500px" }}

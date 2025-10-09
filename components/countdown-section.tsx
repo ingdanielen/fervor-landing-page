@@ -7,15 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 export function CountdownSection() {
-  // Función para calcular el tiempo restante hasta el 19 de septiembre
+  // Función para calcular el tiempo restante hasta el 19 de octubre de 2025
   const calculateTimeLeft = () => {
     const now = new Date()
-    const targetDate = new Date(now.getFullYear(), 8, 19, 15, 0, 0) // 19 de septiembre a las 3:00 PM
-    
-    // Si ya pasó el 19 de septiembre de este año, usar el del próximo año
-    if (now > targetDate) {
-      targetDate.setFullYear(now.getFullYear() + 1)
-    }
+    const targetDate = new Date(2025, 9, 19, 15, 0, 0) // 19 de octubre de 2025 a las 3:00 PM
     
     const difference = targetDate.getTime() - now.getTime()
     
