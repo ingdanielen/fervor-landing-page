@@ -7,12 +7,31 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 export function CountdownSection() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 18,
-    hours: 3,
-    minutes: 41,
-    seconds: 35,
-  })
+  // Función para calcular el tiempo restante hasta el 19 de septiembre
+  const calculateTimeLeft = () => {
+    const now = new Date()
+    const targetDate = new Date(now.getFullYear(), 8, 19, 15, 0, 0) // 19 de septiembre a las 3:00 PM
+    
+    // Si ya pasó el 19 de septiembre de este año, usar el del próximo año
+    if (now > targetDate) {
+      targetDate.setFullYear(now.getFullYear() + 1)
+    }
+    
+    const difference = targetDate.getTime() - now.getTime()
+    
+    if (difference > 0) {
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000)
+      
+      return { days, hours, minutes, seconds }
+    }
+    
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  }
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
 
   const sectionRef = useRef<HTMLElement>(null)
   const numbersRef = useRef<HTMLDivElement>(null)
@@ -21,18 +40,7 @@ export function CountdownSection() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 }
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 }
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 }
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 }
-        }
-        return prev
-      })
+      setTimeLeft(calculateTimeLeft())
     }, 1000)
 
     return () => clearInterval(timer)
