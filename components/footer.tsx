@@ -12,7 +12,7 @@ export function Footer() {
               <span className="text-lg md:text-xl font-bold">FERVOR</span>
             </Link>
             <p className="text-xs md:text-sm text-muted-foreground text-balance">
-              Tarde de alabanza y adoración. Experimentando la presencia de Dios.
+              Tarde de alabanza y adoración • Experimentando la presencia de Dios
             </p>
           </div>
 
@@ -46,9 +46,11 @@ export function Footer() {
             <h3 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">Contacto</h3>
             <ul className="space-y-2 text-xs md:text-sm text-muted-foreground">
               <li>IPUC Soledad Central</li>
-              <li>CRA. 26 #24 - 14</li>
+              <li>Cra. 26 #24-14</li>
               <li>Soledad, Atlántico</li>
-              <li>+57 300 123 4567</li>
+              <li>soporte@fervor.com</li>
+              <li>WhatsApp: +57 300 123 4567</li>
+              <li>(Lun-Vie, 9:00 a. m. a 6:00 p. m.)</li>
             </ul>
           </div>
 
@@ -84,7 +86,7 @@ export function Footer() {
         </div>
 
         <div className="pt-6 md:pt-8 border-t border-[#c4ff0d]/20 text-center text-xs md:text-sm text-muted-foreground">
-          <p>© 2025 FERVOR | Todos los derechos reservados.</p>
+          <p>© 2025 Fervor • Todos los derechos reservados</p>
         </div>
       </div>
     </footer>

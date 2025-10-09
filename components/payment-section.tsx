@@ -71,7 +71,7 @@ export function PaymentSection() {
                 PROCESO DE PAGO SEGURO
               </h2>
               <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 px-2 text-balance">
-                Utiliza Wompi para realizar tu pago de forma segura y confiable
+                Realiza tu pago con Wompi con total confianza. Tu información está protegida en todo momento.
               </p>
               <Button
                 size="lg"
@@ -87,7 +87,7 @@ export function PaymentSection() {
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#c4ff0d]/20 flex items-center justify-center mx-auto mb-2 md:mb-3 border border-[#c4ff0d]/30">
                   <Shield className="h-5 w-5 md:h-6 md:w-6 text-[#c4ff0d]" />
                 </div>
-                <h3 className="font-semibold mb-1 md:mb-2 text-sm md:text-base">100% Seguro</h3>
+                <h3 className="font-semibold mb-1 md:mb-2 text-sm md:text-base">100% Cifrado SSL</h3>
                 <p className="text-xs md:text-sm text-muted-foreground text-balance">
                   Tus datos están protegidos con encriptación SSL
                 </p>
@@ -97,9 +97,9 @@ export function PaymentSection() {
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#c4ff0d]/20 flex items-center justify-center mx-auto mb-2 md:mb-3 border border-[#c4ff0d]/30">
                   <CreditCard className="h-5 w-5 md:h-6 md:w-6 text-[#c4ff0d]" />
                 </div>
-                <h3 className="font-semibold mb-1 md:mb-2 text-sm md:text-base">Múltiples métodos</h3>
+                <h3 className="font-semibold mb-1 md:mb-2 text-sm md:text-base">Métodos disponibles</h3>
                 <p className="text-xs md:text-sm text-muted-foreground text-balance">
-                  Tarjetas, PSE, Efecty y más opciones disponibles
+                  Tarjetas, PSE, Efecty y más
                 </p>
               </div>
 
@@ -109,18 +109,18 @@ export function PaymentSection() {
                 </div>
                 <h3 className="font-semibold mb-1 md:mb-2 text-sm md:text-base">Soporte 24/7</h3>
                 <p className="text-xs md:text-sm text-muted-foreground text-balance">
-                  Estamos disponibles para ayudarte en todo momento
+                  Estamos disponibles para ayudarte
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pt-6 md:pt-8 border-t border-[#c4ff0d]/20">
               <div>
-                <h4 className="font-semibold mb-2 md:mb-3 text-sm md:text-base">Términos y condiciones:</h4>
+                <h4 className="font-semibold mb-2 md:mb-3 text-sm md:text-base">Términos y Condiciones</h4>
                 <ul className="text-xs md:text-sm text-muted-foreground space-y-1">
-                  <li>• Reembolsos disponibles hasta 7 días antes del evento</li>
-                  <li>• Las entradas incluyen IVA</li>
-                  <li>• El certificado de entrada se enviará por email</li>
+                  <li>• Reembolsos hasta 7 días antes del evento</li>
+                  <li>• Entradas incluyen IVA</li>
+                  <li>• Certificado digital enviado por correo</li>
                 </ul>
               </div>
 
@@ -129,7 +129,7 @@ export function PaymentSection() {
                 <ul className="text-xs md:text-sm text-muted-foreground space-y-1">
                   <li>• soporte@fervor.com</li>
                   <li>• WhatsApp: +57 300 123 4567</li>
-                  <li>• Lun-Vie: 9AM-6PM</li>
+                  <li>• Lun-Vie, 9:00 a. m. a 6:00 p. m.</li>
                 </ul>
               </div>
             </div>

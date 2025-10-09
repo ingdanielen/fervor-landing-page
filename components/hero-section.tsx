@@ -11,16 +11,16 @@ gsap.registerPlugin(ScrollTrigger)
 
 const speakers = [
   {
-    name: "LUIS FERNANDO VÁSQUEZ",
-    image: "/professional-church-speaker-.jpg?height=400&width=400&query=Luis Fernando Vasquez church speaker",
-  },
-  {
     name: "SANDRA VILLAMIZAR",
-    image: "/professional-church-speaker-.jpg?height=400&width=400&query=Sandra Villamizar church speaker",
+    image: "/images/Predicadores/sandra.jpeg",
   },
   {
-    name: "JAIRO NASAR PADAUÍ",
-    image: "/professional-church-speaker-.jpg?height=400&width=400&query=Jairo Nasar Padaui church speaker",
+    name: "NABONASAR PADAUÍ",
+    image: "/images/Predicadores/nabonasar.jpg",
+  },
+  {
+    name: "LUIS FERNANDO VÁSQUEZ",
+    image: "/images/Predicadores/luis-fernando.jpg",
   },
 ]
 
@@ -143,11 +143,14 @@ export function HeroSection() {
           </div>
 
           <div ref={detailsRef} className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold font-altone">19 DE OCTUBRE • 3PM - 8PM</p>
-            <p className="text-base md:text-lg text-muted-foreground uppercase tracking-wide font-altone">Tarde de Alabanza</p>
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold font-altone">19 DE OCTUBRE • 3:00 PM - 8:00 PM</p>
+            <p className="text-base md:text-lg text-muted-foreground uppercase tracking-wide font-altone">Tarde de Alabanza "Fervor"</p>
+            <p className="text-sm md:text-base text-white/80 max-w-2xl mx-auto px-4 text-balance">
+              Un encuentro de adoración, unidad y poder del Espíritu Santo
+            </p>
             <div className="flex items-center justify-center gap-2 text-xs sm:text-sm px-4">
               <MapPin className="h-4 w-4 text-[#c4ff0d] flex-shrink-0" />
-              <span className="text-balance font-altone">IPUC SOLEDAD CENTRAL | CRA. 26 #24 - 14</span>
+              <span className="text-balance font-altone">IPUC SOLEDAD CENTRAL | CRA. 26 #24-14</span>
             </div>
           </div>
 
@@ -170,15 +173,15 @@ export function HeroSection() {
           <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto px-4 sm:px-0">
             <Button
               size="lg"
-              className="bg-transparent border-2 border-[#c4ff0d] text-[#c4ff0d] hover:bg-[#c4ff0d] hover:text-black font-semibold px-6 md:px-8 transition-all glow-border w-full sm:w-auto text-sm md:text-base"
+              className="bg-[#c4ff0d] text-black hover:bg-[#c4ff0d]/90 font-black px-8 md:px-10 py-4 md:py-5 transition-all glow-border w-full sm:w-auto text-sm md:text-base shadow-xl hover:shadow-2xl hover:shadow-[#c4ff0d]/30"
             >
-              CUPOS LIMITADOS
+              INSCRIBIRME AHORA
             </Button>
             <Button
               size="lg"
               className="bg-transparent border-2 border-[#c4ff0d] text-[#c4ff0d] hover:bg-[#c4ff0d] hover:text-black font-semibold px-6 md:px-8 transition-all glow-border w-full sm:w-auto text-sm md:text-base"
             >
-              ENTRADAS DISPONIBLES
+              VER MÁS DETALLES
             </Button>
           </div>
         </div>

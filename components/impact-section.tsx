@@ -67,27 +67,27 @@ const randomImages = generateRandomImpactImages()
 const reasons = [
   {
     title: "ENCUENTRO GENUINO",
-    subtitle: "Con la presencia de Dios",
-    description: "Experimenta un encuentro genuino con la presencia de Dios que transformará tu vida para siempre. Una experiencia que marca un antes y un después en tu caminar espiritual.",
+    subtitle: "Con Dios",
+    description: "Cada momento de adoración será una oportunidad para rendirte ante el Señor y escuchar su voz. Aquí no se trata de música o luces, sino de un encuentro real con Aquel que transforma corazones. Experimentarás la presencia tangible del Espíritu Santo de una manera profunda y personal.",
     image: randomImages[0] || "/placeholder.svg",
     gradient: "from-[#c4ff0d] via-[#a8d900] to-[#8bc700]",
-    highlight: "TRANSFORMACIÓN TOTAL",
+    highlight: "PRESENCIA TANGIBLE",
   },
   {
-    title: "COMUNIDAD UNIDA",
-    subtitle: "En fe y propósito",
-    description: "Únete a una comunidad de creyentes apasionados que comparten el mismo fervor y propósito. Juntos experimentaremos la unidad que solo el Espíritu Santo puede crear.",
+    title: "UNIDAD EN FE Y",
+    subtitle: "Propósito",
+    description: "En Fervor nos unimos como una sola iglesia, un solo cuerpo y una sola voz. Creyentes de diferentes lugares y congregaciones se reunirán para exaltar a Jesús, confiando juntos en un mover fresco del Espíritu Santo. La unidad del pueblo de Dios es poderosa y transforma comunidades.",
     image: randomImages[1] || "/placeholder.svg",
     gradient: "from-[#c4ff0d] via-[#d4ff4d] to-[#e8ff8d]",
-    highlight: "UNIDAD SOBRENATURAL",
+    highlight: "UN SOLO CUERPO",
   },
   {
-    title: "PODER SOBRENATURAL",
-    subtitle: "Manifestaciones del Espíritu",
-    description: "Sé testigo de manifestaciones poderosas del Espíritu Santo que cambiarán tu perspectiva de lo imposible. Milagros, sanidades y renovación espiritual te esperan.",
+    title: "TRANSFORMACIÓN",
+    subtitle: "Espiritual",
+    description: "Cuando el Espíritu se derrama, nada vuelve a ser igual. Este es el tiempo de recibir libertad, restauración y propósito renovado. Fervor no será solo una tarde de alabanza: será el inicio de una nueva etapa en tu caminar con Dios. Prepárate para salir cambiado de este lugar.",
     image: randomImages[2] || "/placeholder.svg",
-    gradient: "from-[#8bc700] via-[#c4ff0d] to-[#d4ff4d]",
-    highlight: "MILAGROS REALES",
+    gradient: "from-[#8bc700] via-[#c4ff0d] to-[#d4ff0d]",
+    highlight: "NUEVA ETAPA",
   },
 ]
 
@@ -294,8 +294,8 @@ export function ImpactSection() {
           >
             ¿POR QUÉ ASISTIR A FERVOR?
           </h2>
-          <p ref={subtitleRef} className="text-base md:text-lg lg:text-xl text-white/70 max-w-3xl mx-auto text-balance">
-            Descubre las razones que hacen de FERVOR una experiencia única e inolvidable
+          <p ref={subtitleRef} className="text-base md:text-lg lg:text-xl text-white/70 max-w-4xl mx-auto text-balance">
+            Este no es un evento más en el calendario. Es un momento señalado por Dios para encontrarnos con Su presencia transformadora. Descubre las razones que hacen de Fervor una experiencia única e inolvidable que marcará tu vida espiritual.
           </p>
         </div>
 

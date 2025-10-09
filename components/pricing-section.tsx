@@ -15,25 +15,25 @@ const plans = [
     price: "$30.000",
     priceLabel: "pesos",
     description: "Opción más popular",
-    features: ["Asientos preferenciales", "Comida gratis", "Acceso anticipado", "Meet and greet"],
-    highlighted: false,
+    features: ["Asientos preferenciales", "Comida incluida", "Acceso anticipado", "Meet & Greet con predicadores"],
+    highlighted: true,
   },
   {
     name: "INDIVIDUAL",
     icon: User,
     price: "$15.000",
     priceLabel: "pesos",
-    description: "Opción más popular",
-    features: ["Asientos preferenciales", "Comida gratis", "Acceso anticipado", "Meet and greet"],
-    highlighted: true,
+    description: "Entrada personal",
+    features: ["Asientos preferenciales", "Comida incluida", "Acceso anticipado", "Meet & Greet con predicadores"],
+    highlighted: false,
   },
   {
     name: "GRUPO",
     icon: UsersRound,
     price: "$75.000",
     priceLabel: "pesos",
-    description: "Opción más popular",
-    features: ["Asientos preferenciales", "Comida gratis", "Acceso anticipado", "Meet and greet"],
+    description: "Ideal para congregaciones",
+    features: ["Todos los beneficios incluidos", "Perfecto para ministerios", "Asientos juntos garantizados", "Acceso prioritario"],
     highlighted: false,
   },
 ]
@@ -214,17 +214,17 @@ export function PricingSection() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 md:mb-6 text-white tracking-tight"
             style={{ textShadow: "0 0 40px rgba(196, 255, 13, 0.5)" }}
           >
-            INSCRIPCIÓN
+            OPCIONES DE INSCRIPCIÓN
           </h2>
           <p ref={subtitleRef} className="text-base md:text-lg lg:text-xl text-white/80 mb-6 md:mb-8 px-4">
-            Elige la opción que mejor se adapte a ti
+            Elige la opción que mejor se adapte a ti. ¡Precio especial hasta el 15 de octubre! Cada entrada incluye beneficios exclusivos para hacer de tu experiencia algo memorable.
           </p>
         </div>
 
         <div ref={badgeRef} className="flex justify-center mb-10 md:mb-16 px-4">
           <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-[#c4ff0d] to-[#c4ff0d]/90 text-black px-4 md:px-8 py-3 md:py-4 rounded-full font-black text-xs md:text-sm uppercase tracking-wider shadow-xl text-center">
             <Zap className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
-            <span className="text-balance">¡Precio especial hasta el 15 de Octubre!</span>
+            <span className="text-balance">¡Precio especial hasta el 15 de octubre!</span>
             <Zap className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
           </div>
         </div>

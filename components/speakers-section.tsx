@@ -11,25 +11,25 @@ gsap.registerPlugin(ScrollTrigger)
 
 const speakers = [
   {
-    name: "LUIS FERNANDO VÁSQUEZ",
+    name: "SANDRA VILLAMIZAR",
     role: "Primera Sesión",
     time: "3:00 PM - 4:30 PM",
-    description: "Especialista en adoración profunda",
-    image: "/images/Predicadores/luis-fernando.jpg",
-  },
-  {
-    name: "SANDRA VILLAMIZAR",
-    role: "Segunda Sesión",
-    time: "4:45 PM - 6:15 PM",
-    description: "Líder de alabanza internacional",
+    description: "Esposa de pastor - \"Destilando en lo secreto: Cuando Dios prepara el aceite\"",
     image: "/images/Predicadores/sandra.jpeg",
   },
   {
     name: "NABONASAR PADAUÍ",
+    role: "Segunda Sesión",
+    time: "4:45 PM - 6:15 PM",
+    description: "Secretario de directiva distrital - \"Marcado por el cielo: El día del derramamiento\"",
+    image: "/images/Predicadores/nabonasar.jpg",
+  },
+  {
+    name: "LUIS FERNANDO VÁSQUEZ",
     role: "Tercera Sesión",
     time: "6:30 PM - 8:00 PM",
-    description: "Predicador y maestro de la palabra",
-    image: "/images/Predicadores/nabonasar.jpg",
+    description: "Pastor - \"El peso del perfume: Frutos que huelen a llamado\"",
+    image: "/images/Predicadores/luis-fernando.jpg",
   },
 ]
 
@@ -256,14 +256,14 @@ export function SpeakersSection() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 md:mb-6 text-white tracking-tight"
             style={{ textShadow: "0 0 40px rgba(196, 255, 13, 0.5)", perspective: "1000px" }}
           >
-            PREDICADORES
+            NUESTROS PREDICADORES
           </h2>
           <p
             ref={subtitleRef}
-            className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto flex flex-wrap items-center justify-center gap-2 px-4 mb-6"
+            className="text-base md:text-lg lg:text-xl text-white/80 max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-2 px-4 mb-6"
           >
             <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-[#c4ff0d] flex-shrink-0" />
-            <span className="text-balance">Conoce a los líderes que compartirán la palabra</span>
+            <span className="text-balance">Tres mensajes ungidos, tres momentos de revelación. Cada sesión ha sido preparada en oración para ministrar a tu vida de manera específica y profunda.</span>
             <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-[#c4ff0d] flex-shrink-0" />
           </p>
 
@@ -271,16 +271,16 @@ export function SpeakersSection() {
             <Button
               ref={button1Ref}
               size="lg"
-              className="bg-transparent border-2 border-[#c4ff0d] text-[#c4ff0d] hover:bg-[#c4ff0d] hover:text-black font-semibold px-6 md:px-8 transition-all glow-border w-full sm:w-auto text-sm md:text-base"
+              className="bg-[#c4ff0d] text-black hover:bg-[#c4ff0d]/90 font-black px-8 md:px-10 py-4 md:py-5 transition-all glow-border w-full sm:w-auto text-sm md:text-base shadow-xl hover:shadow-2xl hover:shadow-[#c4ff0d]/30"
             >
-              CUPOS LIMITADOS
+              INSCRIBIRME AHORA
             </Button>
             <Button
               ref={button2Ref}
               size="lg"
               className="bg-transparent border-2 border-[#c4ff0d] text-[#c4ff0d] hover:bg-[#c4ff0d] hover:text-black font-semibold px-6 md:px-8 transition-all glow-border w-full sm:w-auto text-sm md:text-base"
             >
-              ENTRADAS DISPONIBLES
+              VER PRECIOS
             </Button>
           </div>
         </div>

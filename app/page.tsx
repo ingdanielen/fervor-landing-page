@@ -1,11 +1,13 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
+import { EventInfoSection } from "@/components/event-info-section"
 import { SpeakersSection } from "@/components/speakers-section"
 import { GallerySection } from "@/components/gallery-section"
 import { TextCarouselSection } from "@/components/text-carousel-section"
 import { ImpactSection } from "@/components/impact-section"
 import { LiveStreamSection } from "@/components/live-stream-section"
 import { CountdownSection } from "@/components/countdown-section"
+import { CallToHeavenSection } from "@/components/call-to-heaven-section"
 import { PricingSection } from "@/components/pricing-section"
 import { PaymentSection } from "@/components/payment-section"
 import { Footer } from "@/components/footer"
@@ -19,19 +21,17 @@ export default function Page() {
         <Header />
         <main>
           <HeroSection />
+          <EventInfoSection />
           <SpeakersSection />
           <GallerySection />
           <TextCarouselSection />
           <ImpactSection />
           <LiveStreamSection 
             isLiveStreamActive={false} 
-            reelsVideos={[
-              "/placeholder.svg?height=600&width=400&query=worship moment 1",
-              "/placeholder.svg?height=600&width=400&query=worship moment 2",
-              "/placeholder.svg?height=600&width=400&query=worship moment 3"
-            ]} 
+            reelsVideos={["/images/videos/fervor-reveal.mp4"]} 
           />
           <CountdownSection />
+          <CallToHeavenSection />
           <PricingSection />
           <PaymentSection />
         </main>
