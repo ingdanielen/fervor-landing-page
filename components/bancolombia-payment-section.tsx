@@ -90,7 +90,7 @@ export function BancolombiaPaymentSection() {
         <div className="absolute inset-0 "></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex justify-center items-center min-h-[600px]">
-            <div className=" backdrop-blur-md rounded-3xl p-8 w-full max-w-6xl h-[500px] animate-pulse"></div>
+            <div className=" backdrop-blur-md rounded-3xl p-8 w-full max-w-6xl h-[500px] "></div>
           </div>
         </div>
       </section>

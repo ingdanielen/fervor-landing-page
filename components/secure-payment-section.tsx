@@ -136,21 +136,21 @@ export function SecurePaymentSection() {
       <section className="py-16 md:py-24 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="h-8 bg-gray-700 rounded animate-pulse mb-4"></div>
-            <div className="h-4 bg-gray-700 rounded animate-pulse w-3/4 mx-auto mb-8"></div>
-            <div className="h-4 bg-gray-700 rounded animate-pulse w-1/2 mx-auto"></div>
+            <div className="h-8 bg-gray-700 rounded  mb-4"></div>
+            <div className="h-4 bg-gray-700 rounded  w-3/4 mx-auto mb-8"></div>
+            <div className="h-4 bg-gray-700 rounded  w-1/2 mx-auto"></div>
           </div>
           <div className="flex justify-center mb-12">
-            <div className="w-48 h-48 bg-gray-700 rounded animate-pulse"></div>
+            <div className="w-48 h-48 bg-gray-700 rounded "></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-gray-800/50 rounded-2xl p-6 h-32 animate-pulse"></div>
+              <div key={i} className="bg-gray-800/50 rounded-2xl p-6 h-32 "></div>
             ))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-800/50 rounded-2xl p-6 h-48 animate-pulse"></div>
-            <div className="bg-gray-800/50 rounded-2xl p-6 h-48 animate-pulse"></div>
+            <div className="bg-gray-800/50 rounded-2xl p-6 h-48 "></div>
+            <div className="bg-gray-800/50 rounded-2xl p-6 h-48 "></div>
           </div>
         </div>
       </section>
@@ -184,7 +184,7 @@ export function SecurePaymentSection() {
               <div 
                 ref={qrRef}
               >
-                <div className="relative w-40 h-40  md:w-96 md:h-96">
+                <div className="relative w-96 h-96">
                   <Image
                     src="/images/pagos/QR.png"
                     alt="Código QR para pago"
