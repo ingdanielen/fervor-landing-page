@@ -1,0 +1,247 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Shield, CreditCard, Headphones, Mail, MessageCircle, Clock } from "lucide-react"
+
+gsap.registerPlugin(ScrollTrigger)
+
+export function SecurePaymentSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
+  const qrRef = useRef<HTMLDivElement>(null)
+  const featuresRef = useRef<HTMLDivElement>(null)
+  const termsRef = useRef<HTMLDivElement>(null)
+  const helpRef = useRef<HTMLDivElement>(null)
+  const [isClient, setIsClient] = useState(false)
+
+  const features = [
+    {
+      icon: Shield,
+      title: "Privacidad Total",
+      description: "Tus datos están protegidos con encriptación SSL"
+    },
+    {
+      icon: CreditCard,
+      title: "Múltiples métodos",
+      description: "Paga con Tarjetas, PSE, Efecty, Nequi, Bancolombia y más."
+    },
+    {
+      icon: Headphones,
+      title: "Soporte 24/7",
+      description: "Equipo disponible para ayudarte en todo momento"
+    }
+  ]
+
+  const terms = [
+    "Reembolsos disponibles hasta 7 días antes del evento",
+    "Los precios incluyen IVA",
+    "El certificado se entrega al finalizar el evento"
+  ]
+
+  const helpItems = [
+    { icon: Mail, text: "decomtrupillos@gmail.com" },
+    { icon: MessageCircle, text: "WhatsApp: +57 300 123 4567" },
+    { icon: Clock, text: "Lun-Vie 9AM-6PM" }
+  ]
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
+
+    const ctx = gsap.context(() => {
+      // Animación del contenedor principal
+      gsap.from(containerRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+        opacity: 0,
+        scale: 0.9,
+        y: 60,
+        duration: 1,
+        ease: "power3.out",
+      })
+
+      // Animación del título
+      gsap.from(titleRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        delay: 0.2,
+        ease: "power2.out",
+      })
+
+      // Animación del QR
+      gsap.from(qrRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+        opacity: 0,
+        scale: 0.8,
+        duration: 1,
+        delay: 0.2,
+        ease: "back.out(1.7)",
+      })
+
+      // Animación de las características
+      if (featuresRef.current) {
+        gsap.from(featuresRef.current.children, {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+          },
+          opacity: 0,
+          y: 50,
+          scale: 0.5,
+          rotation: -10,
+          duration: 1,
+          stagger: 0.15,
+          delay: 0.4,
+          ease: "elastic.out(1, 0.5)",
+        })
+      }
+
+      // Animación de términos y ayuda
+      gsap.from([termsRef.current, helpRef.current], {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        delay: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+      })
+    })
+
+    return () => ctx.revert()
+  }, [isClient])
+
+  if (!isClient) {
+    return (
+      <section className="py-16 md:py-24 relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="h-8 bg-gray-700 rounded animate-pulse mb-4"></div>
+            <div className="h-4 bg-gray-700 rounded animate-pulse w-3/4 mx-auto mb-8"></div>
+            <div className="h-4 bg-gray-700 rounded animate-pulse w-1/2 mx-auto"></div>
+          </div>
+          <div className="flex justify-center mb-12">
+            <div className="w-48 h-48 bg-gray-700 rounded animate-pulse"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-gray-800/50 rounded-2xl p-6 h-32 animate-pulse"></div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gray-800/50 rounded-2xl p-6 h-48 animate-pulse"></div>
+            <div className="bg-gray-800/50 rounded-2xl p-6 h-48 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <section ref={sectionRef} className="py-12 md:py-16 lg:py-20 relative">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div 
+            ref={containerRef}
+            className="rounded-2xl md:rounded-3xl border border-[#c4ff0d]/30 md:border-2 glass-effect p-6 md:p-8 lg:p-12"
+          >
+            
+            {/* Título e instrucciones */}
+            <div ref={titleRef} className="text-center mb-6 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-balance">
+                PROCESO DE PAGO SEGURO
+              </h2>
+              <p className="text-sm md:text-base text-muted-foreground mb-2 px-2 text-balance">
+                Escanea el código QR con tu app Nequi o Bancolombia.
+              </p>
+              <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 px-2 text-balance">
+                ¿No puedes escanear? ¡Toma un screenshot y paga desde tus fotos!
+              </p>
+            </div>
+
+            {/* QR Code */}
+            <div className="flex justify-center mb-6 md:mb-8">
+              <div 
+                ref={qrRef}
+              >
+                <div className="relative w-40 h-40  md:w-96 md:h-96">
+                  <Image
+                    src="/images/pagos/QR.png"
+                    alt="Código QR para pago"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Características */}
+            <div ref={featuresRef} className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+              {features.map((feature, index) => {
+                const Icon = feature.icon
+                return (
+                  <div
+                    key={index}
+                    className="text-center"
+                  >
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#c4ff0d]/20 flex items-center justify-center mx-auto mb-2 md:mb-3 border border-[#c4ff0d]/30">
+                      <Icon className="h-5 w-5 md:h-6 md:w-6 text-[#c4ff0d]" />
+                    </div>
+                    <h3 className="font-semibold mb-1 md:mb-2 text-sm md:text-base">{feature.title}</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground text-balance">
+                      {feature.description}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Términos y Ayuda */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pt-6 md:pt-8 border-t border-[#c4ff0d]/20">
+              {/* Términos y condiciones */}
+              <div ref={termsRef}>
+                <h4 className="font-semibold mb-2 md:mb-3 text-sm md:text-base">Términos y Condiciones</h4>
+                <ul className="text-xs md:text-sm text-muted-foreground space-y-1">
+                  {terms.map((term, index) => (
+                    <li key={index}>• {term}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Ayuda */}
+              <div ref={helpRef}>
+                <h4 className="font-semibold mb-2 md:mb-3 text-sm md:text-base">¿Necesitas ayuda?</h4>
+                <ul className="text-xs md:text-sm text-muted-foreground space-y-1">
+                  {helpItems.map((item, index) => (
+                    <li key={index}>• {item.text}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

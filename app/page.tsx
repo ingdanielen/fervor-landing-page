@@ -9,6 +9,9 @@ import { LiveStreamSection } from "@/components/live-stream-section"
 import { CountdownSection } from "@/components/countdown-section"
 import { CallToHeavenSection } from "@/components/call-to-heaven-section"
 import { PricingSection } from "@/components/pricing-section"
+import { BancolombiaPaymentSection } from "@/components/bancolombia-payment-section"
+import { PaymentStepsSection } from "@/components/payment-steps-section"
+import { SecurePaymentSection } from "@/components/secure-payment-section"
 import { PaymentSection } from "@/components/payment-section"
 import { Footer } from "@/components/footer"
 import { AnimatedBackground } from "@/components/animated-background"
@@ -33,7 +36,9 @@ export default function Page() {
           <CountdownSection />
           <CallToHeavenSection />
           <PricingSection />
-          <PaymentSection />
+          <BancolombiaPaymentSection />
+          <PaymentStepsSection />
+          <SecurePaymentSection />
         </main>
         <Footer />
       </div>

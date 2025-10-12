@@ -9,15 +9,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 const plans = [
-  {
-    name: "PAREJA",
-    icon: Users,
-    price: "$30.000",
-    priceLabel: "pesos",
-    description: "Opción más popular",
-    features: ["Asientos preferenciales", "Comida incluida", "Acceso anticipado", "Meet & Greet con predicadores"],
-    highlighted: true,
-  },
+  // {
+  //   name: "PAREJA",
+  //   icon: Users,
+  //   price: "$30.000",
+  //   priceLabel: "pesos",
+  //   description: "Opción más popular",
+  //   features: ["Asientos preferenciales", "Comida incluida", "Acceso anticipado", "Meet & Greet con predicadores"],
+  //   highlighted: true,
+  // },
   {
     name: "INDIVIDUAL",
     icon: User,
@@ -27,15 +27,15 @@ const plans = [
     features: ["Asientos preferenciales", "Comida incluida", "Acceso anticipado", "Meet & Greet con predicadores"],
     highlighted: false,
   },
-  {
-    name: "GRUPO",
-    icon: UsersRound,
-    price: "$75.000",
-    priceLabel: "pesos",
-    description: "Ideal para congregaciones",
-    features: ["Todos los beneficios incluidos", "Perfecto para ministerios", "Asientos juntos garantizados", "Acceso prioritario"],
-    highlighted: false,
-  },
+  // {
+  //   name: "GRUPO",
+  //   icon: UsersRound,
+  //   price: "$75.000",
+  //   priceLabel: "pesos",
+  //   description: "Ideal para congregaciones",
+  //   features: ["Todos los beneficios incluidos", "Perfecto para ministerios", "Asientos juntos garantizados", "Acceso prioritario"],
+  //   highlighted: false,
+  // },
 ]
 
 export function PricingSection() {
