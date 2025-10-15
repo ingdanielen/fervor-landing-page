@@ -24,7 +24,7 @@ const plans = [
     price: "$12.000",
     priceLabel: "pesos",
     description: "Entrada personal",
-    features: ["Asientos preferenciales", "Comida incluida", "Acceso anticipado", "Meet & Greet con predicadores"],
+    features: ["Acceso al evento", "Escoge tu asiento libremente"],
     highlighted: false,
   },
   // {
